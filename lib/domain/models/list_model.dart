@@ -26,19 +26,4 @@ class ListModel {
 
     return totalPrice;
   }
-
-  ListModel copyWith({
-    int? id,
-    String? name,
-    List<ProductModel>? products,
-    DateTime? createdAt,
-    DateTime? updatedAt,
-  }) {
-    return ListModel(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        products: products ?? this.products,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt);
-  }
 }
