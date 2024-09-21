@@ -1,33 +1,16 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shopping_lists/domain/models/list_model.dart';
-import 'package:shopping_lists/shared/state_generic.dart';
+import 'package:shopping_lists/domain/models/typedef.dart';
 
-class ShoppingListsState implements StateGeneric<ListModel> {
-  final AsyncValue<List<ListModel>> shoppingList;
+class ShoppingListsState {
+  final AsyncShoppingLists asyncShoppingList;
 
-  const ShoppingListsState({this.shoppingList = const AsyncValue.data([])});
+  const ShoppingListsState({this.asyncShoppingList = const AsyncLoading()});
 
-  ShoppingListsState _copyWith({
-    AsyncValue<List<ListModel>>? shoppingList,
+  ShoppingListsState copyWith({
+    AsyncShoppingLists? asyncShoppingList,
   }) {
     return ShoppingListsState(
-      shoppingList: shoppingList ?? this.shoppingList,
+      asyncShoppingList: asyncShoppingList ?? this.asyncShoppingList,
     );
-  }
-
-  @override
-  loadingState() {
-    _copyWith(shoppingList: const AsyncLoading());
-  }
-
-  @override
-  setValue({required ListModel value}) {
-    final List<ListModel> lists = [];
-    if (!shoppingList.hasValue) {
-      lists.add(value);
-    } else {
-      lists.addAll(shoppingList.value!);
-      lists.add(value);
-    }
   }
 }

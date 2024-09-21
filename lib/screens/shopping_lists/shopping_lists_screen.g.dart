@@ -7,23 +7,22 @@ part of 'shopping_lists_screen.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
-      $shoppingListsScreenRoute,
+      $treeRouter,
     ];
 
-RouteBase get $shoppingListsScreenRoute => GoRouteData.$route(
+RouteBase get $treeRouter => GoRouteData.$route(
       path: '/',
-      factory: $ShoppingListsScreenRouteExtension._fromState,
+      factory: $TreeRouterExtension._fromState,
       routes: [
         GoRouteData.$route(
           path: 'list',
-          factory: $ListScreenRouteExtension._fromState,
+          factory: $ShoppingScreenRouteExtension._fromState,
         ),
       ],
     );
 
-extension $ShoppingListsScreenRouteExtension on ShoppingListsScreenRoute {
-  static ShoppingListsScreenRoute _fromState(GoRouterState state) =>
-      ShoppingListsScreenRoute();
+extension $TreeRouterExtension on TreeRouter {
+  static TreeRouter _fromState(GoRouterState state) => TreeRouter();
 
   String get location => GoRouteData.$location(
         '/',
@@ -39,8 +38,9 @@ extension $ShoppingListsScreenRouteExtension on ShoppingListsScreenRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $ListScreenRouteExtension on ListScreenRoute {
-  static ListScreenRoute _fromState(GoRouterState state) => ListScreenRoute();
+extension $ShoppingScreenRouteExtension on ShoppingScreenRoute {
+  static ShoppingScreenRoute _fromState(GoRouterState state) =>
+      ShoppingScreenRoute();
 
   String get location => GoRouteData.$location(
         '/list',

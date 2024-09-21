@@ -1,6 +1,6 @@
 import 'package:shopping_lists/domain/models/product_model.dart';
 
-class ListModel {
+class ShoppingModel {
   final int id;
   final String name;
   final List<ProductModel>? products;
@@ -8,7 +8,7 @@ class ListModel {
   final DateTime createdAt;
   final DateTime? updatedAt;
 
-  ListModel(
+  ShoppingModel(
       {required this.id,
       required this.name,
       required this.products,

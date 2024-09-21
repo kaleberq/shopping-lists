@@ -1,10 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class ListScreenRoute extends GoRouteData {
+class ShoppingScreenRoute extends GoRouteData {
   @override
   FutureOr<bool> onExit(BuildContext context, GoRouterState state) {
     return false;
@@ -18,18 +17,18 @@ class ListScreenRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const ListScreen();
+    return const ShoppingScreen();
   }
 }
 
-class ListScreen extends ConsumerStatefulWidget {
-  const ListScreen({super.key});
+class ShoppingScreen extends ConsumerStatefulWidget {
+  const ShoppingScreen({super.key});
 
   @override
   ConsumerState createState() => _ListScreenState();
 }
 
-class _ListScreenState extends ConsumerState<ListScreen> {
+class _ListScreenState extends ConsumerState<ShoppingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
